@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Page</title>
+</head>
+<body>
+<link rel="stylesheet" href="style.css">
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<input id="signup-usernamefield" type="text" placeholder="Username"  />
+			<input id="signup-emailfield" type="email" placeholder="Email" />
+			<input id="signup-passwordfield" type="password" placeholder="Password" />
+			<button id="signupbtn">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<input id="signin-emailfield" type="email" placeholder="Email" value="bhuvanesh@gamil.com" />
+			<input id="signin-passwordfield" type="password" placeholder="Password" value="1234" />
+			<a href="#">Forgot your password?</a>
+			<button id="signinbtn">Sign In</button>
+			<br>
+			<button id="refreshbtn">Refresh Token</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/scripts/login_script.js"></script>
+<script src="/scripts/utils.js"></script>
+</body>
+</html>
