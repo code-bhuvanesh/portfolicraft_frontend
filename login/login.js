@@ -37,6 +37,7 @@ async function signin(){
             console.log(responsedata);
             storeAccessToken(responsedata.access);
             storeRefreshToken(responsedata.refresh);
+            window,location = "http://127.0.0.1:5501/"
         }
         else{
             console.log("null");
