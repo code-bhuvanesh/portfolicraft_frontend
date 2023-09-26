@@ -7,6 +7,19 @@
   padding: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-image: url('../assets/page_background.png');
+  opacity: 0.1;
+  z-index: -1;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #e0e0e0;
@@ -165,14 +178,11 @@ section {
 #profile {
   display: flex;
   justify-content: center;
-  gap: 10rem;
-  height: 80vh;
+  gap: 15rem;
+  height: 90vh;
+  margin-top: -100px;
 }
 .section__pic-container {
-  border-radius: 50%;
-  display: flex;
-  height: 400px;
-  width: 400px;
   margin: auto 0;
 }
 
@@ -181,7 +191,6 @@ section {
   display: flex;
   height: 400px;
   width: 400px;
-  margin: auto 0;
 }
 
 .section__text {
@@ -293,24 +302,49 @@ section {
   margin-left: 10%;
 }
 
+
 .text-container{
   max-width: 600px;
   margin-top: 5%;
 }
 
-.about-details-container {
-  margin-top: 10%;
-  flex-direction: column;
+.text-container p {
+  font-size: 22px;
 }
 
-.about-containers, 
-.about-details-container {
+.about-containers {
   display: flex;
+}
+
+.details-text li div {
+  color: rgb(173, 173, 173);
+  margin-left: 10%;
+  font-size: 16px;
+}
+
+.fade-item {
+  transition: 2s all ease-in-out;
+  opacity: 0;
+}
+
+.fadein {
+  animation: fadeIn 0.9s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 .details {
   display: flex;
   gap: 2rem;
+  margin-top: 5%;
 }
 .about-pic {
   border-radius: 2rem;
@@ -326,7 +360,7 @@ section {
   padding: 1.5rem;
   flex: 2;
   height: 500px;
-  width: 300px;
+  width: 350px;
   background: white;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
