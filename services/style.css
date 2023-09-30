@@ -96,17 +96,22 @@ body{
     width: 200px; 
 }
 .project-btn{
-    border-radius: 5px;
+    border-radius: 20px;
     background-color: #b1b1b4;
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 2px;
+    padding: 10px;
     
 }
 .button-icon {
-    margin-right: 5px;
+    margin-right: 2px;
+    margin-left: 5px;
 
 }
 .icon-image {
-    width: 10px; 
-    height: 10px;
+   
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+   
 }
