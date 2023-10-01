@@ -1,13 +1,73 @@
-function toggleReadMore() {
-    var hiddenContent = document.querySelector('.hidden-content');
-    var readMoreButton = document.getElementById('read-more-button');
+function onsaveChanges(){
+    username_field = document.getElementById("username-field")
+    name_field = document.getElementById("name-field")
+    email_field = document.getElementById("email-field")
+    description_field = document.getElementById("description-field")
+    dob_field = document.getElementById("dob-field")
+    skills_field = document.getElementById("skills-field")
 
-    if (hiddenContent.style.display === 'none') {
-        hiddenContent.style.display = 'block';
-        readMoreButton.textContent = 'Add Less';
-    } else {
-        hiddenContent.style.display = 'none';
-        readMoreButton.textContent = 'Add More';
+    skills = []
+
+    s_index = 0
+    e_index = 0
+    for(s in skills_field.value){
+        e_index++
+        if(skills_field.value[s] == ","){
+            skills.push((skills_field.value.substring(s_index,e_index)).trim())
+            s_index = e_index
+        }
+    }
+    skills.push(skills_field.value.substring(s_index).trim())
+
+    links = []
+
+    for(linkfield in document.getElementsByClassName("link-field")){
+        links.push(linkfield.value)
+    }
+
+    //check if not null
+    checkFieldErrors()
+
+    var out = {}
+
+    // out["username"] = username_field.value;
+    out["name"] = name_field.value;
+    out["email"] = email_field.value;
+    out["dob"] = dob_field.value;
+    out["skills"] = skills;
+    // out["username"] = usernamefield.value;
+    // out["username"] = usernamefield.value;
+    // out["username"] = usernamefield.value;
+    // out["username"] = usernamefield.value;
+
+    console.log("out : ")
+    console.log(out)
+}
+function checkFieldErrors() {
+  
+    createErrorMsg("!enter a username", username_field)
+    createErrorMsg("!enter your name", name_field)
+    createErrorMsg("!enter a valid email", email_field)
+    createErrorMsg("!enter some description about you", description_field)
+    createErrorMsg("!enter your date of birth", dob_field)
+    createErrorMsg("!enter atleast one skill", skills_field)
+    
+    
+}
+
+function createErrorMsg(msg, inputfield) {
+    var fieldParent = inputfield.parentElement
+    if (inputfield.value == "") {
+        if (!fieldParent.querySelector('.error-text')) {
+            var newele = document.createElement("div")
+            var errormsg = document.createElement("label")
+            errormsg.className = "error-text"
+            errormsg.textContent = msg
+            newele.appendChild(errormsg)
+        
+            fieldParent.insertBefore(newele, inputfield)
+        }
     }
 }
+   
 
