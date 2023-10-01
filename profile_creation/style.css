@@ -2,12 +2,17 @@ body {
     background: #f5f5f5;
     margin-top: 20px;
 }
+.title-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 2%;
+}
 
 .ui-w-80 {
     size: 90px;
     width : 450px;
 }
-
 
 label.btn {
     margin-bottom: 0;
@@ -27,9 +32,14 @@ label.btn {
     color: #babbbc !important;
 }
 
+
 .card {
+    justify-items: start;
     background-clip: padding-box;
+    min-height: 500px;
     box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+    height: 82vh;
+    max-height: 82vh;
 }
 
 .row-bordered {
@@ -98,6 +108,14 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     border-color: rgba(24, 28, 33, 0.03) !important;
 }
 
+.image-upload{
+    height: 100%;
+    width: 100%;
+}
+
+.image-upload-container{
+    width: 30%;
+}
 
 .error-text{
     color: white;
@@ -112,3 +130,4 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
     border-radius: 10px;
     
 }
+

@@ -1,4 +1,4 @@
-const addBox = document.getElementById("add-edu-btn");
+const addBox = document.querySelector(".add-box");
 const popupBox = document.querySelector(".popup-box");
 const popupTitle = popupBox.querySelector(".title");
 const closeIcon = popupBox.querySelector(".popup-close");
@@ -28,44 +28,37 @@ closeIcon.addEventListener("click", () => {
     document.querySelector("body").style.overflow = "auto";
 });
 
-var educations = []
 
-function showEducations() {
-    educontainer.innerHTML = ""
-    for(e in educations){
-     var edu = educations[e]
-     educontainer.innerHTML += `
-    <div class="edu-item">
-        <div class="edu-item-details">
-            <div class="edu-degree">${edu["degree"]}</div>
-            <div class="edu-insti">${edu["institution"]}</div>
-            <div class="edu-year">${edu["startyear"]}-${edu["endyear"]}</div>
-        </div>
-        <div class="edu-delete"><img src="../assets/delete_icon.png"></div>
+var pc = document.getElementById("project-con")
+
+
+for(var i =0; i < 10; i++){
+    console.log(pc)
+    pc.innerHTML += ` <div class="card">
+    <div class="article-container">
+      <img
+        src="../assets/project-2.png"
+        alt="Project 2"
+        class="project-img"
+      />
     </div>
-     `
-   }
+    <h2 class="project-title">Project ${i+1}</h2>
+    <div class="btn-container">
+      <button
+        class="project-btn"
+        onclick="location.href='https://github.com/'"
+      ><img src="../assets/giticon.png" alt="Github" class="icon-image">
+        GitHub
+      </button>
+      <button
+        class="btn btn-color-2 project-btn"
+        onclick="location.href='https://github.com/'"
+      >  <i class="fas fa-search button-icon"></i>
+        Live Demo
+      </button>
+      <div class="description">
+        This is a long description that will be truncated if it overflows the container.
+    </div>
+    </div>
+</div>`
 }
-showEducations();
-
-
-addBtn.addEventListener("click", e => {
-    e.preventDefault();
-    let degree = degreeField.value.trim();
-    console.log("degree : " + degree)
-    let insti = descField.value.trim();
-    let syear = startyearField.value.trim();
-    let eyear = endyearField.value.trim();
-
-    if(degree || insti || syear || eyear) {
-        educations.push({
-            "institution" : insti,
-            "degree" : degree,
-            "startyear" : syear,
-            "endyear" : eyear
-        })
-        showEducations();
-        closeIcon.click();
-    }
-});
-
