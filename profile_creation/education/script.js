@@ -1,5 +1,5 @@
-const addBox = document.getElementById("add-edu-btn");
-const popupBox = document.querySelector(".popup-box");
+const addBox = document.querySelector(".add-edu-btn");
+const popupBox = document.querySelector(".popup-box-education");
 const popupTitle = popupBox.querySelector(".title");
 const closeIcon = popupBox.querySelector(".popup-close");
 var degreeField = popupBox.querySelector(".degree");
@@ -19,6 +19,8 @@ addBox.addEventListener("click", () => {
     document.querySelector("body").style.overflow = "hidden";
     degreeField.focus();
 });
+
+
 
 closeIcon.addEventListener("click", () => {
     console.log("close popup")

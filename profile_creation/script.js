@@ -3,7 +3,7 @@ function onsaveChanges(){
     name_field = document.getElementById("name-field")
     email_field = document.getElementById("email-field")
     description_field = document.getElementById("description-field")
-    dob_field = document.getElementById("dob-field")
+    jobrole_field = document.getElementById("jobrole_field")
     skills_field = document.getElementById("skills-field")
 
     skills = []
@@ -30,18 +30,21 @@ function onsaveChanges(){
 
     var out = {}
 
-    // out["username"] = username_field.value;
+    out["username"] = username_field.value;
     out["name"] = name_field.value;
     out["email"] = email_field.value;
-    out["dob"] = dob_field.value;
+    out["description"] = description_field.value;
+    out["jobrole"] = jobrole_field.value;
     out["skills"] = skills;
-    // out["username"] = usernamefield.value;
+    // out["educations"] = educations;
+    // out["projects"] = projects;
     // out["username"] = usernamefield.value;
     // out["username"] = usernamefield.value;
     // out["username"] = usernamefield.value;
 
     console.log("out : ")
     console.log(out)
+    uploadToServer(out)
 }
 function checkFieldErrors() {
   
@@ -49,7 +52,7 @@ function checkFieldErrors() {
     createErrorMsg("!enter your name", name_field)
     createErrorMsg("!enter a valid email", email_field)
     createErrorMsg("!enter some description about you", description_field)
-    createErrorMsg("!enter your date of birth", dob_field)
+    createErrorMsg("!enter your date of birth", jobrole_field)
     createErrorMsg("!enter atleast one skill", skills_field)
     
     
@@ -71,3 +74,7 @@ function createErrorMsg(msg, inputfield) {
 }
    
 
+function uploadToServer(body){
+    var url = "createprofile"
+    sendPostRequest(url, body);
+}

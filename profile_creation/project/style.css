@@ -15,8 +15,9 @@ body{
    
 }
 .grid-container {
+    padding-bottom: 100px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Dynamic columns with a minimum width of 200px */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Dynamic columns with a minimum width of 200px */
     grid-gap: 10px; /* Optional, to add spacing between grid items */
 }
 
@@ -28,9 +29,6 @@ body{
     cursor: pointer;
     background: #fff;
     transition: transform 0.1s, background 0.5s;
-}
-.project-img{
-    width: auto !important ;
 }
 
 .project i{
@@ -51,6 +49,7 @@ body{
     color: #fff;
 } */
 
+
 .projects-header{
     display: flex;
     justify-content: space-between; 
@@ -59,9 +58,11 @@ body{
 }
 .project-img{
     border-radius: 15px;
+    height: 200px;
+    width: 260px;
+    max-width: 150%;
+    justify-content: center;
 }
-
-
 
 .add-btn{
     display: inline-block;
@@ -75,32 +76,28 @@ body{
     border-radius: 50px;
 }
 
-.card {
+.project-card {
   padding: 20px;
   margin: 20px;
   border: none;
   box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   border-radius: 25px;
+  position: relative;
+  
 }
 
-.card img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
+
 .description {
     white-space: nowrap; 
     overflow: hidden; 
     text-overflow: ellipsis; 
-    width: 200px; 
+    margin-top: 10px;
 }
 .project-btn{
     border-radius: 20px;
-    background-color: #b1b1b4;
-    padding-left: 5px;
-    padding-right: 2px;
-    padding: 10px;
+    background-color: #dddddd;
+    padding: 4px 10px;
     
 }
 .button-icon {
@@ -114,4 +111,67 @@ body{
     width: 20px;
     border-radius: 20px;
    
+}
+
+
+.proj-delete{
+    background-color: #e0e0e0;
+    border-radius: 20%;
+    position: absolute;
+    top: 20px; 
+    padding: 3px;
+    right: 5px; 
+  }
+
+.proj-delete img{
+    height: 25px;
+    width: 25px;
+    padding: 2px;
+    color: white;
+}
+
+.choose-img-popup {
+    justify-content: center;
+}
+.choose-img-popup input{
+    height: 100px;
+    height: 200px;
+    width: 300px;
+
+}
+ 
+#projectimageContainer {
+    text-align: center;
+    padding: 20px;
+    border: 2px dashed #ccc;
+    height: 200px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3% 10%;
+    border-radius: 20px;
+}
+  
+#projectimageContainer input {
+    display: none;
+  
+}
+  
+#projectimageContainer label {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+#projectimageContainer img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+    display: none;
 }

@@ -1,64 +1,149 @@
-const addBox = document.querySelector(".add-box");
-const popupBox = document.querySelector(".popup-box");
-const popupTitle = popupBox.querySelector(".title");
-const closeIcon = popupBox.querySelector(".popup-close");
-var degreeField = popupBox.querySelector(".degree");
-var descField = popupBox.querySelector(".desc");
-var startyearField = popupBox.querySelector(".startyear");
-var endyearField = popupBox.querySelector(".endyear");
-var addBtn = popupBox.querySelector(".add-edu");
-var educontainer = document.getElementById("education-container");
+const addproject = document.getElementById("add-project-btn");
+const popupBoxProject = document.querySelector(".popup-box-project");
+const popupTitleProject = popupBoxProject.querySelector(".title");
+const closeIconProject = popupBoxProject.querySelector(".popup-close");
+var addBtnProject = popupBoxProject.querySelector(".add-proj");
+var projImag = popupBoxProject.querySelector(".proj-image");
+var projName = popupBoxProject.querySelector(".proj-name");
+var projLink = popupBoxProject.querySelector(".proj-github");
+var projDesc = popupBoxProject.querySelector(".proj-desc");
 
-const months = ["January", "February", "March", "April", "May", "June", "July",
-              "August", "September", "October", "November", "December"];
-
-addBox.addEventListener("click", () => {
-    popupTitle.innerText = "Add Education";
-    addBtn.innerText = "Add";
-    popupBox.classList.add("show");
-    document.querySelector("body").style.overflow = "hidden";
-    degreeField.focus();
+addproject.addEventListener("click", () => {
+  console.log("add project btn pressed")
+  popupBoxProject.classList.add("show");
+  document.querySelector("body").style.overflow = "hidden";
 });
 
-closeIcon.addEventListener("click", () => {
+closeIconProject.addEventListener("click", () => {
     console.log("close popup")
     isUpdate = false;
-    degreeField.value = descField.value = startyearField.value = endyearField.value = "";
-    popupBox.classList.remove("show");
+    // degreeField.value = descField.value = startyearField.value = endyearField.value = "";
+    popupBoxProject.classList.remove("show");
     document.querySelector("body").style.overflow = "auto";
 });
 
+var projects = [
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project-3.png"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+  // {
+  //   "projectname": "Expense Tracker",
+  //   "projectimages": ["../assets/project_placeholder.jpg"],
+  //   "projectdesc": "A mobile app for tracking daily expenses effortlessly.",
+  //   "projectlinks": ["github.com/user/expensetracker", "example.com/expensetrackerdemo"]
+  // },
+]
 
-var pc = document.getElementById("project-con")
+showProjects()
+
+addBtnProject.addEventListener('click', () => {
+  console.log(projImag)
+  if(projImag || projName || projLink || projDesc){
+    var newProj = {}
+    newProj["projectname"] = [projName.value]
+    newProj["projectimages"] = [`${currImgId}`]
+    newProj["projectdesc"] = projDesc.value
+    newProj["projectlinks"] = [projLink.value]
+    projects.push(newProj)
+    showProjects()
+    // closeIconProject.click()
+  }
+})
+
+var imgdata = {}
 
 
-for(var i =0; i < 10; i++){
-    console.log(pc)
-    pc.innerHTML += ` <div class="card">
-    <div class="article-container">
-      <img
-        src="../assets/project-2.png"
-        alt="Project 2"
-        class="project-img"
-      />
-    </div>
-    <h2 class="project-title">Project ${i+1}</h2>
-    <div class="btn-container">
-      <button
-        class="project-btn"
-        onclick="location.href='https://github.com/'"
-      ><img src="../assets/giticon.png" alt="Github" class="icon-image">
-        GitHub
-      </button>
-      <button
-        class="btn btn-color-2 project-btn"
-        onclick="location.href='https://github.com/'"
-      >  <i class="fas fa-search button-icon"></i>
-        Live Demo
-      </button>
-      <div class="description">
-        This is a long description that will be truncated if it overflows the container.
-    </div>
-    </div>
-</div>`
+function showProjects(){
+  var pc = document.getElementById("project-con")
+  pc.innerHTML = ""
+  for(var i in projects){
+      var porj = projects[i]
+      pc.innerHTML += ` <div class="project-card">
+      <div class="proj-delete">
+        <img src="../assets/delete_icon.png">
+      </div>
+      <div class="article-container">
+        <img
+          src="${imgdata[porj["projectimages"][0]]}"
+          class="project-img"
+        />
+      </div>
+      <h2 class="project-title">${porj["projectname"]}</h2>
+      <div class="btn-container">
+        <button
+          class="project-btn"
+          onclick="location.href='${porj["projectlinks"][0]}'"
+        ><img src="../assets/github.png" class="icon-image">
+          GitHub
+        </button>
+        <div class="description">
+        ${porj["projectdesc"]}
+      </div>
+      </div>
+      </div>`
+  }
+
 }
+
+
+const imageInput = document.getElementById("imageInput");
+const selectedImage = document.getElementById("selectedImage");
+
+var currImgId = 0;
+
+imageInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = () => {
+          selectedImage.src = img.src;
+          selectedImage.style.display = "block";
+          document.getElementById("img-label").style.display = "none";
+      };
+    };
+
+    reader.readAsDataURL(file);
+
+    //saving it to upload for django server
+    const formdata = new FormData()
+    formdata.append(`${currImgId}`, file)
+    imgdata[`${currImgId}`] = file
+  }
+});

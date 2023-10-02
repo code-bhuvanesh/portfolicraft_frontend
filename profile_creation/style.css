@@ -6,7 +6,8 @@ body {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    margin-bottom: 2%;
+    margin: 2%;
+
 }
 
 .ui-w-80 {
@@ -40,6 +41,13 @@ label.btn {
     box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
     height: 82vh;
     max-height: 82vh;
+   
+}
+
+.card-body{
+    overflow-y: auto; 
+    max-height: 80vh;
+    padding-bottom: 500px;
 }
 
 .row-bordered {

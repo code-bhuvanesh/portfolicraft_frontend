@@ -8,6 +8,9 @@ async function sendPostRequest(url, body) {
 
     token = getToken("accesstoken");
     console.log(token)
+    if(token == null){
+      window.location = "/login"
+    }
     if(token != null){
       header["Authorization"] = 'Bearer ' + token;
     }
