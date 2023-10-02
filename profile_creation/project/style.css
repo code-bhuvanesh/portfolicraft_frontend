@@ -34,7 +34,7 @@ body{
 .project i{
     font-size: 40px;
     margin-bottom: 10px;
-    color: #303ef7;
+    color: #000000;
 }
 .project h2{
     font-weight: 600;
@@ -74,6 +74,14 @@ body{
     color: #fff;
     font-size: 18px;
     border-radius: 50px;
+}
+
+.cust-button{
+    width: 100px;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 30px;
 }
 
 .project-card {

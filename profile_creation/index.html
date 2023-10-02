@@ -13,20 +13,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #eee;">
     <div class="container light-style flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-4">
+        <h4 class="page-titile">
             Profile Creation
         </h4>
-        <div class="card overflow-hidden" style="text-align: start;">
-            <div class="row no-gutters row-bordered row-border-light">
+        <div class="card overflow-hidden" style="text-align: start; border-radius: 20px;">
+            <div class="row no-gutters row-bordered row-border-light" >
                 <div class="col-md-3 pt-0">
                     <div class="list-group list-group-flush account-settings-links">
                       
                         <a class="list-group-item list-group-item-action active" data-toggle="list"
                             href="#account-general">General</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#education-info">Eduaction</a>    
+                            href="#education-info">Education</a>    
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-social-links">Social links</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
@@ -43,7 +43,6 @@
                                 <h1>Your Info</h1>
                             </div>
                             <div class="card-body media" style="margin: 1%; padding: 0px;">
-                                
                                 <div class="card-body image-upload-container">
                                     <div>
                                         <img src="https://static.vecteezy.com/system/resources/previews/020/213/738/non_2x/add-profile-picture-icon-upload-photo-of-social-media-user-vector.jpg"
@@ -110,11 +109,11 @@
                                               <input class="desc" type="text" spellcheck="false">
                                             </div>
                                             <div class="row">
-                                              <label>Year of pass out</label>
+                                              <label>Start Year</label>
                                               <input class="startyear" type="text" spellcheck="false">
                                             </div>
                                             <div class="row">
-                                              <label>Grade</label>
+                                              <label>End Year</label>
                                               <input class="endyear" type="text" spellcheck="false">
                                             </div>
                                             <button class="add-edu"></button>
@@ -152,30 +151,25 @@
                                 <h1>Your Social Links</h1>
                             </div>
                             <div class="card-body pb-2">
-                              
                                 <div class="form-group">
-                                    <label class="form-label">Your website</label>
-                                    <input type="text" class="form-control link-field" value="https://example.com/">
+                                    <label class="form-label social-link-label">Your website</label>
+                                    <input type="text" class="form-control link-field" placeholder="https://yourwebsite.com/">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">GitHub</label>
-                                    <input type="text" class="form-control link-field" value="https://www.github.com/user">
+                                    <label class="form-label social-link-label">GitHub</label>
+                                    <input type="text" class="form-control link-field" placeholder="https://www.github.com/">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">LinkedIn</label>
-                                    <input type="text" class="form-control link-field" value="https://www.linkedin.com/user">
+                                    <label class="form-label social-link-label">LinkedIn</label>
+                                    <input type="text" class="form-control link-field" placeholder="https://www.linkedin.com/">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Twitter</label>
-                                    <input type="text" class="form-control link-field" value="https://twitter.com/user">
+                                    <label class="form-label social-link-label">Twitter</label>
+                                    <input type="text" class="form-control link-field" placeholder="https://twitter.com/">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label">Instagram</label>
-                                    <input type="text" class="form-control link-field" value="https://www.instagram.com/user">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Facebook</label>
-                                    <input type="text" class="form-control link-field" value="https://www.facebook.com/user">
+                                    <label class="form-label social-link-label">Instagram</label>
+                                    <input type="text" class="form-control link-field" placeholder="https://www.instagram.com/">
                                 </div>
                             </div>
                         </div>
@@ -236,17 +230,17 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary" onclick="onsaveChanges()">Save changes</button>&nbsp;
-            <button type="button" class="btn btn-default">Cancel</button>
+            <button id="prev-btn" type="button" class="cust-button" onclick="prevTab()">Previous</button>
+            <button id="next-btn" type="button" class="cust-button">Next</button>
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../scripts/utils.js"></script>
     <script src="script.js"></script>
     <script src="education/script.js"></script>
     <script src="project/script.js"></script>
-    <script src="../scripts/utils.js"></script>
 </body>
 
 </html>

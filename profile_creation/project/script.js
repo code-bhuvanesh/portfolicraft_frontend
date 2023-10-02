@@ -70,25 +70,32 @@ var projects = [
 showProjects()
 
 addBtnProject.addEventListener('click', () => {
-  console.log(projImag)
+  const formData = new FormData();
   if(projImag || projName || projLink || projDesc){
     var newProj = {}
-    newProj["projectname"] = [projName.value]
-    newProj["projectimages"] = [`${currImgId}`]
-    newProj["projectdesc"] = projDesc.value
-    newProj["projectlinks"] = [projLink.value]
+    formData.append('projectimages', imgdata);
+    formData.append('projectname', projName.value);
+    formData.append('projectdesc', projDesc.value);
+    formData.append('projectlinks', projLink.value);
+    // newProj['projectimages'] = [imgdata];
+    // newProj['projectname'] = projName.value;
+    // newProj['projectdesc'] = projDesc.value;
+    // newProj['projectlinks'] = [projLink.value];
+    // sendPostRequest("addprojects", newProj)
+    sendPostRequest("addprojects", )
     projects.push(newProj)
-    showProjects()
-    // closeIconProject.click()
+    getProfileDataFromServer()
+    closeIconProject.click()
   }
 })
 
-var imgdata = {}
+var imgdata = null
 
 
 function showProjects(){
   var pc = document.getElementById("project-con")
   pc.innerHTML = ""
+  console.log("projects " + projects)
   for(var i in projects){
       var porj = projects[i]
       pc.innerHTML += ` <div class="project-card">
@@ -97,7 +104,7 @@ function showProjects(){
       </div>
       <div class="article-container">
         <img
-          src="${imgdata[porj["projectimages"][0]]}"
+          src="${porj["projectimages"]}"
           class="project-img"
         />
       </div>
@@ -105,7 +112,7 @@ function showProjects(){
       <div class="btn-container">
         <button
           class="project-btn"
-          onclick="location.href='${porj["projectlinks"][0]}'"
+          onclick="location.href='${porj["projectlinks"]}'"
         ><img src="../assets/github.png" class="icon-image">
           GitHub
         </button>
@@ -122,7 +129,6 @@ function showProjects(){
 const imageInput = document.getElementById("imageInput");
 const selectedImage = document.getElementById("selectedImage");
 
-var currImgId = 0;
 
 imageInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
@@ -144,6 +150,6 @@ imageInput.addEventListener("change", (event) => {
     //saving it to upload for django server
     const formdata = new FormData()
     formdata.append(`${currImgId}`, file)
-    imgdata[`${currImgId}`] = file
+    imgdata = file
   }
 });

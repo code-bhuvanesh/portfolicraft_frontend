@@ -41,14 +41,14 @@ function showEducations() {
         <div class="edu-item-details">
             <div class="edu-degree">${edu["degree"]}</div>
             <div class="edu-insti">${edu["institution"]}</div>
-            <div class="edu-year">${edu["startyear"]}-${edu["endyear"]}</div>
+            <div class="edu-year">${edu["startYear"]}-${edu["endYear"]}</div>
         </div>
         <div class="edu-delete"><img src="../assets/delete_icon.png"></div>
     </div>
      `
    }
 }
-showEducations();
+
 
 
 addBtn.addEventListener("click", e => {
@@ -60,14 +60,19 @@ addBtn.addEventListener("click", e => {
     let eyear = endyearField.value.trim();
 
     if(degree || insti || syear || eyear) {
-        educations.push({
+        var newedu = {
             "institution" : insti,
             "degree" : degree,
             "startyear" : syear,
             "endyear" : eyear
-        })
-        showEducations();
+        }
+        uploadEduToServer({ "educations": [newedu]})
+        getProfileDataFromServer()
         closeIcon.click();
     }
 });
+
+function uploadEduToServer(body){
+    sendPostRequest("addeducation", body)
+}
 

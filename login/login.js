@@ -66,7 +66,7 @@ async function signup(){
         if(responsedata != null){
             console.log("body");
             console.log(responsedata);
-            window.location.href = "webpages/crate_profile.html"
+            window.location.href = "profile_creation"
         }
         else{
             console.log("null");

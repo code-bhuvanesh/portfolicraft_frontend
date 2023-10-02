@@ -47,26 +47,47 @@ function objectToMap(obj) {
   return map;
 }
 
-async function sendGetRequest(url, body) {
+async function sendGetRequest(url, body = {}, header = {}) {
   try {
     const queryString = Object.keys(body)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(body[key])}`)
     .join('&');
     console.log(`${apiurl}${url}?${queryString}`)
+    
+    const headers = new Headers();
+    headers.append('Content-Type','application/json');
+    token = getToken("accesstoken");
+    if(token != null){
+      headers.append('Authorization', 'Bearer ' + token);
+      header["Authorization"] = 'Bearer ' + token;
+    }
+
     const response = await fetch(`${apiurl}${url}?${queryString}`, {
       method: 'GET',
+      headers: headers
     });
-
+    
+    if(response.status == 401){
+      if(token == null){
+        window.location = "/login"
+      }
+      else if(response.status == 401){
+        refreshToken();
+        sendPostRequest(url, body);
+      }
+    }
 
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
     }
+   
 
     const responseData = await response.json() 
     console.log("respo : " + responseData)
     return responseData;
   } catch (error) {
     console.error('Error:', error);
+    
     return null;
   }
 }
