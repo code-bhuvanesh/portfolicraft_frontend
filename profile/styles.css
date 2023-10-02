@@ -7,6 +7,19 @@
   padding: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+  background-image: url('../assets/page_background.png');
+  opacity: 0.1;
+  z-index: -1;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: #e0e0e0;
@@ -147,6 +160,7 @@ a:hover {
   transform: none;
 }
 
+
 /* SECTIONS */
 
 section {
@@ -165,14 +179,11 @@ section {
 #profile {
   display: flex;
   justify-content: center;
-  gap: 10rem;
-  height: 80vh;
+  gap: 15rem;
+  height: 90vh;
+  margin-top: -100px;
 }
 .section__pic-container {
-  border-radius: 50%;
-  display: flex;
-  height: 400px;
-  width: 400px;
   margin: auto 0;
 }
 
@@ -181,7 +192,6 @@ section {
   display: flex;
   height: 400px;
   width: 400px;
-  margin: auto 0;
 }
 
 .section__text {
@@ -276,8 +286,8 @@ section {
 }
 
 .details-text{
+  margin: 2%;
   margin-top: 10%;
-  margin-left: 10%;
   text-align: start;
   font-size: 20px;
     /* align-items: center; */
@@ -293,24 +303,49 @@ section {
   margin-left: 10%;
 }
 
+
 .text-container{
   max-width: 600px;
   margin-top: 5%;
 }
 
-.about-details-container {
-  margin-top: 10%;
-  flex-direction: column;
+.text-container p {
+  font-size: 22px;
 }
 
-.about-containers, 
-.about-details-container {
+.about-containers {
   display: flex;
+}
+
+.details-text li div {
+  color: rgb(173, 173, 173);
+  margin-left: 10%;
+  font-size: 16px;
+}
+
+.fade-item {
+  transition: 2s all ease-in-out;
+  opacity: 0;
+}
+
+.fadein {
+  animation: fadeIn 0.9s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }
 
 .details {
   display: flex;
   gap: 2rem;
+  margin-top: 5%;
 }
 .about-pic {
   border-radius: 2rem;
@@ -326,12 +361,13 @@ section {
   padding: 1.5rem;
   flex: 2;
   height: 500px;
-  width: 300px;
+  width: 350px;
   background: white;
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
   text-align: center;
+  display: inline-block;
 }
 
 .section-container {
@@ -359,18 +395,29 @@ section {
 }
 
 .experience-details-container {
-  display: flex;
   justify-content: center;
-  flex-direction: column;
+  overflow-x: auto;
+}
+
+.experience-details-container .about-containers {
+  white-space: nowrap;
+  transition: transform 0.3s ease;
+}
+
+
+.scroll-buttons {
+  position: absolute;
+  top: 50%; /* Vertically center the buttons */
+  transform: translateY(-50%);
 }
 
 .article-container {
-  display: flex;
+  /* display: flex;
   text-align: initial;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 2.5rem;
-  justify-content: space-around;
+  justify-content: space-around; */
 }
 
 article {
@@ -459,4 +506,89 @@ footer {
 
 footer p {
   text-align: center;
+}
+
+
+/* Reset some default styles */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic styling for the slider container */
+.slider-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 200%; /* Adjust the maximum width as needed */
+  margin: 70px auto;
+  position: relative;
+  align-items: center;
+  /* margin: 10% 10%; */
+}
+
+/* Styling for the slider */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-container{
+  min-width: 33.333%;
+  max-width: 33.333%;
+  justify-content: center;
+  align-items: center; 
+  display: flex;
+}
+
+/* Styling for each card */
+.card {
+  min-width: 80%;
+  /* max-width: 33.333%;  */
+  height: 95%;
+  padding: 20px;
+  margin: 20px;
+  border: none;
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.slider-button {
+  background-color: #0000006b;
+  position: absolute;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  top: 45%;
+  width: 70px;
+  height: 70px;
+  outline: none;
+  border: none;
+
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+.slider-button:hover {
+  background-color: #000000;
+}
+
+.slider-button:focus {
+  outline: none;
 }
