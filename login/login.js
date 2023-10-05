@@ -13,10 +13,8 @@ signInButton.addEventListener('click', () => {
 
 const signinBtn = document.getElementById("signinbtn");
 const signupBtn = document.getElementById("signupbtn");
-const refreshBtn = document.getElementById("refreshbtn");
 signinBtn.addEventListener('click', () => signin())
 signupBtn.addEventListener('click', () => signup())
-refreshBtn.addEventListener('click', () => refreshToken())
 
 
 async function signin(){
@@ -62,11 +60,16 @@ async function signup(){
         "password": password
       };
     console.log(JSON.stringify(data));
-    sendPostRequest("signup", data).then(responsedata => {
+    SendSignUpRequest("signup", data).then(responsedata => {
         if(responsedata != null){
             console.log("body");
             console.log(responsedata);
-            window.location.href = "webpages/crate_profile.html"
+            storeAccessToken(responsedata.access);
+            storeRefreshToken(responsedata.refresh);
+            console.log("acess token")
+            console.log(getToken("accesstoken"))
+            // window.location = "../profile_creation"
+
         }
         else{
             console.log("null");

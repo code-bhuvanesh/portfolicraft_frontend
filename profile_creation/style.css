@@ -1,0 +1,155 @@
+body {
+    background-color: #000000;
+    margin-top: 20px;
+}
+.title-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 2%;
+
+}
+
+.page-titile{
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 20px;
+}
+
+
+.ui-w-80 {
+    size: 90px;
+    width : 450px;
+}
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #26B4FF;
+    background  : transparent;
+    color       : #000000;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.text-light {
+    color: #babbbc !important;
+}
+
+
+.card {
+    justify-items: start;
+    background-clip: padding-box;
+    min-height: 500px;
+    box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+    height: 82vh;
+    max-height: 82vh;
+   
+}
+
+.card-body{
+    overflow-y: auto; 
+    max-height: 80vh;
+    padding-bottom: 500px;
+}
+
+.row-bordered {
+    overflow: hidden;
+    height: auto;
+    width: auto;
+}
+
+.hidden-content {
+    display: none;
+}
+
+.account-settings-fileinput {
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold !important;
+    background-color: #000000;
+}
+
+.list-group-item .list-group-item-action.active{
+    color: #26B4FF;
+}
+
+html:not(.dark-style) .account-settings-links .list-group-item.active {
+    background: transparent !important;
+}
+
+.account-settings-multiselect~.select2-container {
+    width: 100% !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+}
+
+.account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.account-settings-links .list-group-item.active {
+    color: #4e5155 !important;
+    background-color: #000000;
+
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff !important;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 !important;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) !important;
+}
+
+.image-upload{
+    height: 100%;
+    width: 100%;
+}
+
+.image-upload-container{
+    width: 30%;
+}
+
+.error-text{
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    /* margin-left: 10px; */
+    margin-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0.678);
+    display: inline-block;
+    height: 30px;
+    padding: 0px 10px;
+    border-radius: 10px;
+    
+}
+

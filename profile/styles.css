@@ -74,6 +74,7 @@ a:hover {
 
 .logo {
   font-size: 2rem;
+  font-family: 'Mali', cursive;
 }
 
 .logo:hover {
@@ -197,6 +198,7 @@ section {
 .section__text {
   align-self: center;
   text-align: center;
+  min-width: 400px;
 }
 
 .section__text p {
@@ -306,6 +308,7 @@ section {
 
 .text-container{
   max-width: 600px;
+  min-width: 600px;
   margin-top: 5%;
 }
 
@@ -351,11 +354,6 @@ section {
   border-radius: 2rem;
 }
 
-.arrow {
-  position: absolute;
-  right: 5rem;
-  bottom: 2.5rem;
-}
 
 .details-container {
   padding: 1.5rem;
@@ -375,11 +373,38 @@ section {
   height: 80%;
 }
 
-/*.section__pic-container {
+.section__pic-container {
   height: 400px;
   width: 400px;
   margin: auto 0;
 }
+
+
+#edit-profile-btn{
+  /* position: relative; */
+  width: 180px;
+  height: 50px;
+  text-align: center;
+  margin: 0px 25%;
+  background-color: #c7c7c79c;
+  border-radius: 10px;
+  font-weight: bold;
+  display: none;
+}
+
+#edit-profile-btn img{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+#edit-profile-btn label{
+  position: relative;
+  margin: 12px;
+}
+
 
 /* EXPERIENCE SECTION */
 
@@ -582,6 +607,14 @@ body, h1, h2, h3, p {
 }
 
 #nextBtn {
+  right: 10px;
+}
+
+#prevBtn-blog {
+  left: 10px;
+}
+
+#nextBtn-blog {
   right: 10px;
 }
 
