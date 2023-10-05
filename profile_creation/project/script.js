@@ -69,22 +69,18 @@ var projects = [
 
 showProjects()
 
-addBtnProject.addEventListener('click', () => {
+addBtnProject.addEventListener('click', async () => {
   const formData = new FormData();
   if(projImag || projName || projLink || projDesc){
-    var newProj = {}
+
     formData.append('projectimages', imgdata);
     formData.append('projectname', projName.value);
     formData.append('projectdesc', projDesc.value);
     formData.append('projectlinks', projLink.value);
-    // newProj['projectimages'] = [imgdata];
-    // newProj['projectname'] = projName.value;
-    // newProj['projectdesc'] = projDesc.value;
-    // newProj['projectlinks'] = [projLink.value];
-    // sendPostRequest("addprojects", newProj)
-    sendPostRequest("addprojects", )
-    projects.push(newProj)
+
+    await sendFormData("addprojects",formData) 
     getProfileDataFromServer()
+    showProjects()
     closeIconProject.click()
   }
 })
@@ -133,6 +129,7 @@ const selectedImage = document.getElementById("selectedImage");
 imageInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
+    imgdata = file
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -147,9 +144,5 @@ imageInput.addEventListener("change", (event) => {
 
     reader.readAsDataURL(file);
 
-    //saving it to upload for django server
-    const formdata = new FormData()
-    formdata.append(`${currImgId}`, file)
-    imgdata = file
   }
 });

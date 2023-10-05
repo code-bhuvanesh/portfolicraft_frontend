@@ -36,22 +36,34 @@ function showEducations() {
     educontainer.innerHTML = ""
     for(e in educations){
      var edu = educations[e]
+     var sy = edu["startYear"]
+     var ey = edu["endYear"]
+     var outyear = ""
+     if(sy == 0){
+        outyear = "-"
+     }
+     else if(ey == 0){
+        outyear = sy + "-"
+     }
+     else{
+        outyear = sy + "-" + ey
+     }
      educontainer.innerHTML += `
-    <div class="edu-item">
-        <div class="edu-item-details">
-            <div class="edu-degree">${edu["degree"]}</div>
-            <div class="edu-insti">${edu["institution"]}</div>
-            <div class="edu-year">${edu["startYear"]}-${edu["endYear"]}</div>
-        </div>
-        <div class="edu-delete"><img src="../assets/delete_icon.png"></div>
-    </div>
-     `
-   }
+     <div class="edu-item">
+         <div class="edu-item-details">
+             <div class="edu-degree">${edu["degree"]}</div>
+             <div class="edu-insti">${edu["institution"]}</div>
+             <div class="edu-year">${outyear}</div>
+         </div>
+         <div class="edu-delete"><img src="../assets/delete_icon.png"></div>
+     </div>
+      `
+    }
 }
 
 
 
-addBtn.addEventListener("click", e => {
+addBtn.addEventListener("click", async e => {
     e.preventDefault();
     let degree = degreeField.value.trim();
     console.log("degree : " + degree)
@@ -66,13 +78,11 @@ addBtn.addEventListener("click", e => {
             "startyear" : syear,
             "endyear" : eyear
         }
-        uploadEduToServer({ "educations": [newedu]})
+        console.log("newedu")
+        console.log(newedu)
+        await sendPostRequest("addeducation", { "educations": [newedu]})
         getProfileDataFromServer()
         closeIcon.click();
     }
 });
-
-function uploadEduToServer(body){
-    sendPostRequest("addeducation", body)
-}
 

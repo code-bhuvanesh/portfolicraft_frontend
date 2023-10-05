@@ -19,10 +19,12 @@ prev_btn.style.display = "none"
 for (let i = 0; i < tabs.length; i++) {
     tabs[i].addEventListener('click', function (event) {
         currentTab = tabs[i].innerText
+        currentTabIndex = i
         switch(currentTab.toLowerCase()){
             case "general":
                 console.log("tab is genral")
                 prev_btn.style.display = "none"
+                
                 break
             case "education":
                 showEducations()
@@ -41,6 +43,7 @@ for (let i = 0; i < tabs.length; i++) {
             case "customization":
                 console.log("tab is customization")
                 prev_btn.style.display = "inline-block"
+                next_btn.innerText = "Save"
                 break
         }
        
@@ -78,6 +81,7 @@ next_btn.addEventListener("click", ()=>{
             break
         case "customization":
             console.log("tab is customization")
+            window.location = "../"
             break
     }
     nextTab()
@@ -210,20 +214,29 @@ async function getProfileDataFromServer(){
 }
 
 function setOldData(){
+
     console.log(userdata)
-    username_field.value = userdata["username"]
-    name_field.value = userdata["name"]
-    email_field.value = userdata["email"]
-    jobrole_field.value = userdata["jobrole"]
-    description_field.value = userdata["description"]
-    skills_field.value = userdata["skills"]
-    educations = userdata["educations"]
-    projects = userdata["projects"]
-    populateSocialLinks( userdata["socialmedia"]);
+    if(userdata["username"] != null){
+        username_field.value = userdata["username"]
+        email_field.value = userdata["email"]
+    }
+    if(userdata["name"] != null){
+        name_field.value = userdata["name"]
+        jobrole_field.value = userdata["jobrole"]
+        description_field.value = userdata["description"]
+        skills_field.value = userdata["skills"]
+        educations = userdata["educations"]
+        projects = userdata["projects"]
+        populateSocialLinks( userdata["socialmedia"]);
+        showEducations();
+        showProjects();
+    }
     
     
-    showEducations();
-    showProjects();
+    
+    
+    
+    
 
 }
 

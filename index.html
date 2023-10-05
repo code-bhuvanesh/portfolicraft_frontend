@@ -5,37 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortfolioCraft</title>
     <link rel="stylesheet" href="style.css" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="background" >
+    <div class="background">
         <div class="navbar">
-            <a href="/login"><img src="assets/profile_icon.png" ></a>
+            <a id="login-link" href="/login" style="display: none;"><label>Login/SignUp</label></a>
+                <a  id="profile-img"><img src="assets/profile_icon.png" ></a>
+                <div class="menudiv hidden" id="hidden-div">
+                    <a><label id="profile-btn" class="nav-label">Your Profile</label></a>
+                    <a><label id="edit-profile-btn" class="nav-label">Edit Profile</label></a>
+                    <a><label id="logout-btn" class="nav-label">Logout</label></a>
+                </div>
         </div>
+
+        <div class="container">
+            <div class="logo" >PORTFOLICRAFT</div>
     
-        <div class="logo" >PortfoliCraft</div>
-    
-        <div class="search-container">
-            <input id="profile-search" type="text" class="search-bar" placeholder="Search Profiles...">
-            <img  id="search-btn" class="search-icon" src="assets/search.png">
-            
-          
-        </div>
-        <div class="featured-profiles-container">
-            <p style="font-size: 30px; font-weight: bold;">Featured Profiles</p>
-            <div class="grid-container">
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
-                <div class="featured-profile"></div>
+            <div class="search-container">
+                <input id="profile-search" type="text" class="search-bar" placeholder="Search Profiles...">
+                <img  id="search-btn" class="search-icon" src="assets/search.png">
+            </div>
+            <div class="">
+                <button  id="create-btn">create your own profile</button>
             </div>
         </div>
-        <script src="script.js"></script>
+    
+       
         <script src="scripts/utils.js"></script>
+        <script src="script.js"></script>
     </div>
 </body>
 </html>
